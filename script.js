@@ -69,7 +69,7 @@ const rewards = [
     {
         min: 21,
         max: 30,
-        image: "D:\\games\\dont_click game\\images\\modi_melody.webp",
+        image: "images/modi_melody.webp",
         message: "Enjoy Modi special melody 🍫😂"
     },
     {
