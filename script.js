@@ -50,7 +50,23 @@ const funnyMessages = [
     "Rano rana ni rite ho bhai 💀",
     "Nay bhegu thay ben have 😝"
 ];
+function speakFish(text) {
 
+    if (!("speechSynthesis" in window)) {
+        return;
+    }
+
+    speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.85;      // થોડું slow = cute
+    speech.pitch = 2.0;      // high = cute
+    speech.volume = 0.65;    // softer voice
+
+    speechSynthesis.speak(speech);
+}
 
 // Rewards
 const rewards = [
@@ -149,17 +165,19 @@ function moveFish() {
     score++;
     scoreText.innerText = score;
 
-    // 4. Update center game message with random funny message
-    const randomMessage = funnyMessages[
-        Math.floor(Math.random() * funnyMessages.length)
-    ];
-    message.innerText = randomMessage;
+   // Funny message
+const randomMessage =
+    funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
 
-    // 5. Update funny fish bubble with random message
-    const funnyRandomMessage = funnyMessages[
-        Math.floor(Math.random() * funnyMessages.length)
-    ];
-    funnyMessageElement.innerText = funnyRandomMessage;
+message.innerText = randomMessage;
+
+// Same message in fish speech bubble
+if (funnyMessageElement) {
+    funnyMessageElement.innerText = randomMessage;
+}
+
+// Fish speaks the same message
+speakFish(randomMessage);
 
     // 6. Calculate safe random position for the entire container
     const containerWidth = mainFishContainer.offsetWidth;
