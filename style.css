@@ -405,10 +405,12 @@ body {
 
 #runButton.magic {
     filter:
-        drop-shadow(0 0 8px #00ffe1)
-        drop-shadow(0 0 20px #00ffe1)
-        drop-shadow(0 0 40px #00ffe1)
-        drop-shadow(0 0 70px rgba(0, 255, 225, 0.5));
+        drop-shadow(0 0 4px #ffffff)
+        drop-shadow(0 0 10px #00ffe1)
+        drop-shadow(0 0 25px #00ffe1)
+        drop-shadow(0 0 45px #00ffe1)
+        drop-shadow(0 0 70px rgba(0, 255, 225, 0.8));
+
     transform: scale(1.15);
 }
 
@@ -806,14 +808,23 @@ body {
 
     #runButton {
         width: 85px;
+        filter:
+            drop-shadow(0 0 4px rgba(0, 0, 0, 1))
+            drop-shadow(0 0 10px #00ffe1)
+            drop-shadow(0 0 22px rgba(0, 255, 225, 0.9));
     }
-
+    
+    .mainFishContainer {
+    position: fixed;
+    z-index: 100;
+    }
+    
     .funnyFishContainer {
         bottom: 15px;
         left: 10px;
     }
 
-    .funnyFish {
+   .funnyFish {
         width: 50px;
     }
 
